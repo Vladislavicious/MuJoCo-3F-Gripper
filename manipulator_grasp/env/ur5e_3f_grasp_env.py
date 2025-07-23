@@ -40,7 +40,7 @@ class UR5GraspEnv:
         self.num_points = 4096
 
     def reset(self):
-        filename = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'assets', 'scenes', 'scene.xml')
+        filename = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'assets', 'scenes', 'scene_3f_gripper.xml')
         self.mj_model = mujoco.MjModel.from_xml_path(filename)
         self.mj_data = mujoco.MjData(self.mj_model)
         mujoco.mj_forward(self.mj_model, self.mj_data)
@@ -51,9 +51,14 @@ class UR5GraspEnv:
         self.joint_names = ["shoulder_pan_joint", "shoulder_lift_joint", "elbow_joint", "wrist_1_joint",
                             "wrist_2_joint", "wrist_3_joint"]
         [mj.set_joint_q(self.mj_model, self.mj_data, jn, self.robot_q[i]) for i, jn in enumerate(self.joint_names)]
+
+        self.mj_data.ctrl[:] = np.concatenate([self.robot_q, np.zeros(4)])
+
         mujoco.mj_forward(self.mj_model, self.mj_data)
-        mj.attach(self.mj_model, self.mj_data, "attach", "2f85", self.robot.fkine(self.robot_q))
-        robot_tool = sm.SE3.Trans(0.0, 0.0, 0.13) * sm.SE3.RPY(-np.pi / 2, -np.pi / 2, 0.0)
+        mj.attach(self.mj_model, self.mj_data, "attach", "3f", self.robot.fkine(self.robot_q))
+        
+        
+        robot_tool = sm.SE3.Trans(0.0, 0.0, 0.17) * sm.SE3.RPY(-np.pi / 2, -np.pi / 2, 0.0) # 调整末端到ee_link的距离
         self.robot.set_tool(robot_tool)
         self.robot_T = self.robot.fkine(self.robot_q)
         self.T0 = self.robot_T.copy()
@@ -86,7 +91,7 @@ class UR5GraspEnv:
             self.mj_depth_renderer.close()
 
     def step(self, action=None):
-        if action is not None:
+        if action is not None: 
             self.mj_data.ctrl[:] = action
         mujoco.mj_step(self.mj_model, self.mj_data)
 
@@ -104,7 +109,7 @@ class UR5GraspEnv:
 if __name__ == '__main__':
     env = UR5GraspEnv()
     env.reset()
-    for i in range(10000):
+    for i in range(1000000):
         env.step()
     imgs = env.render()
     env.close()

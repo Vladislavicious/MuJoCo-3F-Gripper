@@ -8,10 +8,9 @@ import spatialmath as sm
 from scipy.linalg import orthogonal_procrustes
 
 from manipulator_grasp.arm.motion_planning import *
-from manipulator_grasp.env.ur5_grasp_env import UR5GraspEnv
+from manipulator_grasp.env.ur5_2f_grasp_env import UR5GraspEnv
 
 from utils_wrapper.motion_plan import *
-from utils_wrapper.grasp_net import *
 
 
 class MyRobot:
