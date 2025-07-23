@@ -1,6 +1,6 @@
-from arm.geometry.simplex.factory.simplex_factory import SimplexFactory
-from arm.geometry.simplex.line_segment import LineSegment
-from arm.geometry.simplex.factory.simplex_parameter import SimplexParameter
+from manipulator_grasp.arm.geometry.simplex.factory.simplex_factory import SimplexFactory
+from manipulator_grasp.arm.geometry.simplex.line_segment import LineSegment
+from manipulator_grasp.arm.geometry.simplex.factory.simplex_parameter import SimplexParameter
 
 
 class LineSegmentFactory(SimplexFactory):

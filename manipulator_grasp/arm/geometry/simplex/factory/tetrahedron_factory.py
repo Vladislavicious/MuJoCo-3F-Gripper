@@ -1,5 +1,5 @@
 from .simplex_factory import SimplexFactory
-from arm.geometry.simplex.tetrahedron import Tetrahedron
+from manipulator_grasp.arm.geometry.simplex.tetrahedron import Tetrahedron
 from .simplex_parameter import SimplexParameter
 
 

@@ -1,5 +1,5 @@
 from .simplex_factory import SimplexFactory
-from arm.geometry.simplex.point import Point
+from manipulator_grasp.arm.geometry.simplex.point import Point
 from .simplex_parameter import SimplexParameter
 
 

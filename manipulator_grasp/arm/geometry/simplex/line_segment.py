@@ -3,7 +3,7 @@ from typing import List
 
 import numpy as np
 
-from arm.constanst import MathConst
+from manipulator_grasp.arm.constanst import MathConst
 
 from .geometry import Geometry
 from .simplex import Simplex
