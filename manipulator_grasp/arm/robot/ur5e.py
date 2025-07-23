@@ -1,14 +1,20 @@
 from typing import List
+import os
+import sys
+
+ROOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),  '../../../..') 
+sys.path.append(os.path.join(ROOT_DIR, 'manipulator_grasp'))
+
 
 import numpy as np
 import roboticstoolbox as rtb
 from spatialmath import SE3
 import modern_robotics as mr
 
-from arm.geometry import Geometry3D, Capsule
-from arm.utils import MathUtils
-from .robot_config import RobotConfig
-from .robot import Robot, get_transformation_mdh, wrap
+from manipulator_grasp.arm.geometry import Geometry3D, Capsule
+from manipulator_grasp.arm.utils import MathUtils
+from manipulator_grasp.arm.robot.robot_config import RobotConfig
+from manipulator_grasp.arm.robot.robot import Robot, get_transformation_mdh, wrap
 
 
 class UR5e(Robot):
@@ -257,7 +263,7 @@ class UR5e(Robot):
 
 if __name__ == '__main__':
     ur_robot = UR5e()
-    q0 = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
+    q0 = [0.1, 0.1, 0.1, 0., 0., 0.]
     T1 = ur_robot.fkine(q0)
     print(T1)
     ur_robot.move_cartesian(T1)

@@ -1,7 +1,9 @@
-import os.path
+import os
 import sys
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.join(ROOT_DIR, "../../../")
+sys.path.append(os.path.join(ROOT_DIR, 'manipulator_grasp'))
 
-sys.path.append('../../manipulator_grasp')
 
 import time
 import numpy as np
