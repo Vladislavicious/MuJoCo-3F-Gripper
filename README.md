@@ -1,37 +1,51 @@
-# manipulator_grasp
+# MuJoCo UR5e with Robotiq 2F85 and 3F Grippers
 
-#### 介绍
-manipulator grasp GraspNet 
-
-#### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+## 项目介绍
+本项目基于MuJoCo仿真环境，实现了UR5e机械臂与Robotiq 2F85（两指夹爪）、Robotiq 3F（三指夹爪）的集成。  
+- 针对2F85夹爪的示例代码：`main2f.py`  
+- 针对3F夹爪的示例代码：`main3f.py`  
 
 
-#### 特技
+## 环境安装教程
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+### 推荐配置（已验证）
+- 操作系统：Ubuntu 20.04  
+- Python 版本：3.8  
+
+
+### 依赖安装
+通过`requirements.txt`安装所需依赖包：  
+```bash
+pip install -r requirements.txt
+```
+
+依赖清单如下：
+```
+matplotlib==3.7.5              # 数据可视化库
+modern_robotics==1.1.1         # 现代机器人学算法库
+mujoco==3.2.3                  # MuJoCo物理引擎核心库
+numpy==1.23.4                  # 数值计算基础库
+pandas==2.0.3                  # 数据处理库
+roboticstoolbox_python==1.1.1  # 机器人工具箱
+scipy==1.16.0                  # 科学计算库
+spatialmath_python==1.1.14     # 空间数学运算库
+```
+
+
+## 使用说明
+
+1. **运行2F85夹爪示例**：  
+   ```bash
+   python main2f.py
+   ```
+
+2. **运行3F夹爪示例**：  
+   ```bash
+   python main3f.py
+   ```
+
+
+## 致谢
+本项目开发利用了以下开源资源：
+- `manipulator_grasp`（Gitee）：https://gitee.com/chaomingsanhua/manipulator_grasp  
+- `MuJoCo_RL_UR5`（GitHub）：https://github.com/PaulDanielML/MuJoCo_RL_UR5
