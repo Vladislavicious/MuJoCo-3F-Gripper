@@ -1,51 +1,50 @@
-# MuJoCo UR5e with Robotiq 2F85 and 3F Grippers
+Вот перевод текста на русский язык:
 
-## 项目介绍
-本项目基于MuJoCo仿真环境，实现了UR5e机械臂与Robotiq 2F85（两指夹爪）、Robotiq 3F（三指夹爪）的集成。  
-- 针对2F85夹爪的示例代码：`main2f.py`  
-- 针对3F夹爪的示例代码：`main3f.py`  
+# MuJoCo UR5e с захватами Robotiq 2F85 и 3F
 
+## Описание проекта
+Данный проект реализует интеграцию манипулятора UR5e с захватами Robotiq 2F85 (двухпальцевый) и Robotiq 3F (трёхпальцевый) в среде симуляции MuJoCo.
 
-## 环境安装教程
+- Пример кода для захвата 2F85: `main2f.py`
+- Пример кода для захвата 3F: `main3f.py`
 
-### 推荐配置（已验证）
-- 操作系统：Ubuntu 20.04  
-- Python 版本：3.8  
+## Инструкция по установке окружения
 
+### Рекомендуемая конфигурация (проверено)
+- Операционная система: Ubuntu 20.04
+- Версия Python: 3.8
 
-### 依赖安装
-通过`requirements.txt`安装所需依赖包：  
+### Установка зависимостей
+Установите необходимые пакеты зависимостей с помощью `requirements.txt`:
 ```bash
 pip install -r requirements.txt
 ```
 
-依赖清单如下：
+Список зависимостей:
 ```
-matplotlib==3.7.5              # 数据可视化库
-modern_robotics==1.1.1         # 现代机器人学算法库
-mujoco==3.2.3                  # MuJoCo物理引擎核心库
-numpy==1.23.4                  # 数值计算基础库
-pandas==2.0.3                  # 数据处理库
-roboticstoolbox_python==1.1.1  # 机器人工具箱
-scipy==1.16.0                  # 科学计算库
-spatialmath_python==1.1.14     # 空间数学运算库
+matplotlib==3.7.5              # Библиотека для визуализации данных
+modern_robotics==1.1.1         # Библиотека алгоритмов современной робототехники
+mujoco==3.2.3                  # Основная библиотека физического движка MuJoCo
+numpy==1.26.0                  # Базовая библиотека для численных вычислений
+pandas==2.1.4                  # Библиотека для обработки данных
+roboticstoolbox_python==1.1.1  # Инструментарий для робототехники
+scipy==1.16.0                  # Библиотека для научных вычислений
+spatialmath_python==1.1.14     # Библиотека для пространственных математических операций
 ```
 
+## Инструкция по использованию
 
-## 使用说明
-
-1. **运行2F85夹爪示例**：  
+1. **Запуск примера с захватом 2F85**:
    ```bash
    python main2f.py
    ```
 
-2. **运行3F夹爪示例**：  
+2. **Запуск примера с захватом 3F**:
    ```bash
    python main3f.py
    ```
 
-
-## 致谢
-本项目开发利用了以下开源资源：
-- `manipulator_grasp`（Gitee）：https://gitee.com/chaomingsanhua/manipulator_grasp  
-- `MuJoCo_RL_UR5`（GitHub）：https://github.com/PaulDanielML/MuJoCo_RL_UR5
+## Благодарностиc
+При разработке данного проекта были использованы следующие открытые ресурсы:
+- `manipulator_grasp` (Gitee): https://gitee.com/chaomingsanhua/manipulator_grasp
+- `MuJoCo_RL_UR5` (GitHub): https://github.com/PaulDanielML/MuJoCo_RL_UR5
